@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Health Record System | Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =====================================================
+           FINAL LOGIN PAGE DESIGN
+           ===================================================== */
+
+        .login-page {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 8% 15%, rgba(79, 195, 247, 0.20), transparent 28%),
+                radial-gradient(circle at 88% 85%, rgba(56, 189, 248, 0.13), transparent 30%),
+                linear-gradient(135deg, #eaf8ff 0%, #f7fcff 48%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            font-family: "Segoe UI", Inter, Arial, sans-serif;
+        }
+
+        .login-shell {
+            width: min(1180px, 100%);
+            min-height: 690px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            border-radius: 32px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            box-shadow:
+                0 30px 80px rgba(30, 100, 140, 0.13),
+                0 8px 25px rgba(30, 100, 140, 0.06);
+            backdrop-filter: blur(18px);
+        }
+
+        /* =====================================================
+           LEFT SIDE
+           ===================================================== */
+
+        .login-intro {
+            position: relative;
+            overflow: hidden;
+            padding: 55px 60px;
+            background:
+                radial-gradient(circle at 85% 10%, rgba(255,255,255,0.55), transparent 22%),
+                linear-gradient(145deg, #dff5ff 0%, #c9efff 42%, #edfaff 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .login-intro::before {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            right: -170px;
+            top: -100px;
+            background: rgba(56, 189, 248, 0.10);
+        }
+
+        .login-intro::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            left: -160px;
+            bottom: -150px;
+            background: rgba(14, 165, 233, 0.08);
+        }
+
+        /* Brand */
+
+        .login-brand {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .login-logo {
+            width: 62px;
+            height: 62px;
+            border-radius: 19px;
+            background: linear-gradient(145deg, #ffffff, #e9f9ff);
+            border: 1px solid rgba(255,255,255,0.9);
+            box-shadow: 0 12px 25px rgba(14, 165, 233, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0787d1;
+        }
+
+        .login-logo svg {
+            width: 39px;
+            height: 39px;
+        }
+
+        .brand-text h2 {
+            font-size: 19px;
+            color: #123b57;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+        }
+
+        .brand-text p {
+            margin: 5px 0 0;
+            color: #5790ac;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        /* Main intro */
+
+        .intro-content {
+            position: relative;
+            z-index: 2;
+            max-width: 590px;
+            margin-top: 20px;
+        }
+
+        .intro-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.72);
+            border: 1px solid rgba(255,255,255,0.95);
+            color: #1886b8;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .intro-content h1 {
+            color: #123b57;
+            font-size: clamp(42px, 5vw, 65px);
+            line-height: 1.02;
+            letter-spacing: -2.7px;
+            margin: 0;
+            max-width: 620px;
+        }
+
+        .intro-content h1 span {
+            color: #0796d8;
+        }
+
+        .intro-description {
+            color: #57778b;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 540px;
+            margin: 22px 0 0;
+        }
+
+        /* About box */
+
+        .about-box {
+            margin-top: 28px;
+            padding: 20px 21px;
+            border-radius: 17px;
+            background: rgba(255,255,255,0.62);
+            border: 1px solid rgba(255,255,255,0.92);
+            box-shadow: 0 8px 25px rgba(32, 110, 145, 0.05);
+        }
+
+        .about-title {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: #16445f;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .about-title-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #0796d8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-box p {
+            color: #668394;
+            font-size: 11px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Features */
+
+        .login-features {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 11px;
+            margin-top: 20px;
+        }
+
+        .login-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.55);
+            border: 1px solid rgba(255,255,255,0.75);
+        }
+
+        .feature-check {
+            width: 27px;
+            height: 27px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            background: white;
+            color: #0b9bd5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .login-feature span {
+            color: #416b80;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .intro-footer {
+            position: relative;
+            z-index: 2;
+            color: #7092a4;
+            font-size: 9px;
+            margin-top: 20px;
+        }
+
+        /* =====================================================
+           RIGHT SIDE LOGIN CARD
+           ===================================================== */
+
+        .login-form-area {
+            background: rgba(255,255,255,0.92);
+            padding: 48px 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            width: min(410px, 100%);
+        }
+
+        .login-card-top {
+            margin-bottom: 25px;
+        }
+
+        .welcome-icon {
+            width: 47px;
+            height: 47px;
+            border-radius: 14px;
+            background: #e8f7ff;
+            color: #078bc9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            margin-bottom: 17px;
+        }
+
+        .login-card-top h1 {
+            color: #122f45;
+            font-size: 31px;
+            letter-spacing: -1px;
+            margin: 0;
+        }
+
+        .login-card-top p {
+            color: #8998a5;
+            font-size: 12px;
+            margin: 7px 0 0;
+        }
+
+        /* Error message hidden until needed */
+
+        #authMessage {
+            display: none;
+            margin-bottom: 14px;
+            padding: 11px 13px;
+            border-radius: 10px;
+            background: #fff3f3;
+            border: 1px solid #ffd2d2;
+            color: #b42318;
+            font-size: 11px;
+        }
+
+        #authMessage.show {
+            display: block;
+        }
+
+        /* Role */
+
+        .login-label {
+            display: block;
+            color: #405568;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .role-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+            padding: 5px;
+            background: #f0f7fb;
+            border: 1px solid #e0edf4;
+            border-radius: 13px;
+            margin-bottom: 21px;
+        }
+
+        .role-btn {
+            border: 0;
+            background: transparent;
+            border-radius: 9px;
+            padding: 12px 8px;
+            color: #7d8e9b;
+            font-size: 11px;
+            font-weight: 800;
+            transition: 0.2s ease;
+        }
+
+        .role-btn:hover {
+            color: #087fb8;
+        }
+
+        .role-btn.active,
+        .role-btn.selected {
+            background: white;
+            color: #0786c2;
+            box-shadow: 0 4px 13px rgba(38, 113, 145, 0.10);
+        }
+
+        /* Inputs */
+
+        .login-field {
+            margin-bottom: 17px;
+        }
+
+        .login-field > label {
+            display: block;
+            color: #405568;
+            font-size: 10px;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .login-input-wrap {
+            position: relative;
+        }
+
+        .login-input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8da1af;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .login-input,
+        .login-password {
+            width: 100%;
+            height: 49px;
+            border: 1px solid #dce7ee;
+            border-radius: 11px;
+            background: #f9fcfe;
+            color: #203548;
+            outline: none;
+            font-size: 12px;
+            padding: 0 13px 0 40px;
+            transition: 0.2s ease;
+        }
+
+        .login-input:focus,
+        .login-password:focus {
+            border-color: #45b9e8;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(69,185,232,0.10);
+        }
+
+        .login-password {
+            padding-right: 48px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 33px;
+            height: 33px;
+            border: 0;
+            background: transparent;
+            color: #8395a2;
+            border-radius: 8px;
+        }
+
+        .password-toggle:hover {
+            background: #edf7fb;
+            color: #0786c2;
+        }
+
+        /* Remember */
+
+        .login-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 4px 0 18px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #83919d;
+            font-size: 10px;
+        }
+
+        .remember-me input {
+            accent-color: #078bc9;
+        }
+
+        .prototype-label {
+            color: #9aa6af;
+            font-size: 9px;
+        }
+
+        /* Button */
+
+        .login-submit {
+            width: 100%;
+            height: 50px;
+            border: 0;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #159fd8, #087db8);
+            color: white;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+            box-shadow: 0 10px 22px rgba(8, 125, 184, 0.19);
+            transition: 0.2s ease;
+        }
+
+        .login-submit:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 27px rgba(8, 125, 184, 0.25);
+        }
+
+        /* Divider */
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: #a3afb8;
+            font-size: 9px;
+            margin: 23px 0;
+        }
+
+        .login-divider::before,
+        .login-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e8eef2;
+        }
+
+        /* Signup */
+
+        .create-account {
+            text-align: center;
+            color: #87949f;
+            font-size: 11px;
+        }
+
+        .create-account a {
+            color: #0786c2;
+            font-weight: 800;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+
+        .login-privacy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 18px;
+            color: #a1adb5;
+            font-size: 9px;
+        }
+
+        /* Provider hint */
+
+        .provider-hint {
+            margin-top: 14px;
+            padding: 11px 13px;
+            border-radius: 10px;
+            background: #f0f9fe;
+            border: 1px solid #d7eef9;
+            color: #5e8195;
+            font-size: 9px;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .login-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .login-intro {
+                min-height: auto;
+                padding: 42px 35px;
+            }
+
+            .intro-content h1 {
+                font-size: 45px;
+            }
+
+            .login-form-area {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .login-page {
+                padding: 12px;
+            }
+
+            .login-shell {
+                border-radius: 22px;
+            }
+
+            .login-intro {
+                padding: 30px 23px;
+            }
+
+            .intro-content h1 {
+                font-size: 37px;
+                letter-spacing: -1.5px;
+            }
+
+            .login-features {
+                grid-template-columns: 1fr;
+            }
+
+            .login-form-area {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="auth-body">
+
+<div class="login-page">
+
+    <div class="login-shell">
+
+        <!-- =================================================
+             LEFT INTRODUCTION
+             ================================================= -->
+
+        <section class="login-intro">
+
+            <div class="login-brand">
+
+                <div class="login-logo">
+
+                    <!-- Health Record System Logo -->
+                    <svg viewBox="0 0 64 64" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="8" y="8" width="48" height="48"
+                              rx="15"
+                              fill="#DDF5FF"/>
+
+                        <path d="M20 34H27L31 23L36 42L40 31H45"
+                              stroke="#0796D8"
+                              stroke-width="4"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+
+                        <path d="M32 13V22"
+                              stroke="#1769AA"
+                              stroke-width="4"
+                              stroke-linecap="round"/>
+
+                        <path d="M27.5 17.5H36.5"
+                              stroke="#1769AA"
+                              stroke-width="4"
+                              stroke-linecap="round"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="brand-text">
+                    <h2>Health Record System</h2>
+                    <p>Your Health • Our Priority</p>
+                </div>
+
+            </div>
+
+
+            <div class="intro-content">
+
+                <div class="intro-badge">
+                    ✦ DIGITAL HEALTH RECORD PLATFORM
+                </div>
+
+                <h1>
+                    Your Health,
+                    <br>
+                    <span>Your Records.</span>
+                    <br>
+                    Your Control.
+                </h1>
+
+                <p class="intro-description">
+                    A simple and organized platform to keep your medical
+                    history, reports and prescriptions together in one place.
+                    Access your health information whenever you need it.
+                </p>
+
+
+                <!-- ABOUT WEBSITE -->
+
+                <div class="about-box">
+
+                    <div class="about-title">
+
+                        <div class="about-title-icon">
+                            ℹ
+                        </div>
+
+                        About the System
+
+                    </div>
+
+                    <p>
+                        Health Record System is an academic web application
+                        designed to demonstrate digital management of patient
+                        health records. Patients can maintain their medical
+                        information, while healthcare providers can view and
+                        update relevant records.
+                    </p>
+
+                </div>
+
+
+                <!-- FEATURES -->
+
+                <div class="login-features">
+
+                    <div class="login-feature">
+                        <div class="feature-check">✓</div>
+                        <span>Medical History</span>
+                    </div>
+
+                    <div class="login-feature">
+                        <div class="feature-check">✓</div>
+                        <span>Medical Reports</span>
+                    </div>
+
+                    <div class="login-feature">
+                        <div class="feature-check">✓</div>
+                        <span>Prescriptions</span>
+                    </div>
+
+                    <div class="login-feature">
+                        <div class="feature-check">✓</div>
+                        <span>Provider Access</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="intro-footer">
+                Frontend academic prototype • HTML • CSS • JavaScript • Local Storage
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RIGHT LOGIN FORM
+             ================================================= -->
+
+        <section class="login-form-area">
+
+            <div class="login-card">
+
+                <div class="login-card-top">
+
+                    <div class="welcome-icon">
+                        👋
+                    </div>
+
+                    <h1>Welcome Back</h1>
+
+                    <p>
+                        Login to securely access your health records.
+                    </p>
+
+                </div>
+
+
+                <!-- Error / Success Message -->
+                <div id="authMessage"></div>
+
+
+                <!-- ROLE -->
+
+                <label class="login-label">
+                    I am a
+                </label>
+
+                <div class="role-tabs">
+
+                    <button
+                        type="button"
+                        class="role-btn active"
+                        data-role="patient">
+
+                        👤 Patient
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="role-btn"
+                        data-role="provider">
+
+                        🩺 Healthcare Provider
+
+                    </button>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+
+                <form id="loginForm">
+
+                    <div class="login-field">
+
+                        <label for="loginIdentifier">
+                            Email / Phone Number
+                        </label>
+
+                        <div class="login-input-wrap">
+
+                            <span class="login-input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="text"
+                                id="loginIdentifier"
+                                class="login-input"
+                                placeholder="Enter your email or phone number"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="login-field">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <div class="login-input-wrap">
+
+                            <span class="login-input-icon">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                class="login-password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('loginPassword', this)"
+                                aria-label="Show password">
+
+                                ◉
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="login-options">
+
+                        <label class="remember-me">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            Remember me
+
+                        </label>
+
+                        <span class="prototype-label">
+                            Academic prototype
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-submit">
+
+                        Login →
+
+                    </button>
+
+                </form>
+
+
+                <div class="login-divider">
+                    OR
+                </div>
+
+
+                <div class="create-account">
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+                        Create Account
+                    </a>
+
+                </div>
+
+
+                <div
+                    id="providerHint"
+                    class="provider-hint"
+                    style="display:none;">
+
+                    <strong>Provider Demo Login</strong><br>
+
+                    Email:
+                    <b>doctor@hrs.com</b>
+                    <br>
+
+                    Password:
+                    <b>doctor123</b>
+
+                </div>
+
+
+                <div class="login-privacy">
+
+                    🔒
+
+                    Local Storage is used for this
+                    academic frontend-only prototype.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,800 @@
+/* =========================================================
+   HEALTH RECORD SYSTEM - PROFILE & EXTRA COMPONENTS
+   ========================================================= */
+
+/* =========================================================
+   PROFILE SECTION
+   ========================================================= */
+
+.profile-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.profile-card {
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2563eb, #14b8a6);
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+.profile-card h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 21px;
+}
+
+.profile-card p {
+    margin: 7px 0 0;
+    color: #718096;
+    font-size: 14px;
+}
+
+.profile-details {
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.profile-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.profile-details-header h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 22px;
+}
+
+.profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.profile-info-item {
+    padding: 18px;
+    background: #f8fafc;
+    border: 1px solid #edf1f5;
+    border-radius: 14px;
+}
+
+.profile-info-item .label {
+    display: block;
+    color: #718096;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 7px;
+}
+
+.profile-info-item .value {
+    color: #172033;
+    font-size: 15px;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   PROFILE SUMMARY
+   ========================================================= */
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.summary-avatar {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #14b8a6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.summary-info h3 {
+    margin: 0 0 5px;
+    color: #172033;
+    font-size: 18px;
+}
+
+.summary-info p {
+    margin: 3px 0;
+    color: #718096;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RECORD CARDS
+   ========================================================= */
+
+.record-card {
+    display: flex;
+    gap: 17px;
+    padding: 20px;
+    margin-bottom: 14px;
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 16px;
+    transition: 0.25s ease;
+}
+
+.record-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.record-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    font-size: 22px;
+}
+
+.record-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.record-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.record-top h3 {
+    margin: 0;
+    color: #172033;
+    font-size: 17px;
+}
+
+.record-date {
+    color: #718096;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.record-content p {
+    color: #5f6b7a;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.record-conclusion {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f0fdf4;
+    border: 1px solid #dcfce7;
+    color: #166534;
+    font-size: 13px;
+}
+
+.record-conclusion strong {
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   REPORT CARDS
+   ========================================================= */
+
+.report-card {
+    display: flex;
+    gap: 17px;
+    padding: 20px;
+    margin-bottom: 14px;
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 16px;
+    transition: 0.25s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.report-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #fef3c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.report-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.report-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.report-top h3 {
+    margin: 0;
+    color: #172033;
+    font-size: 17px;
+}
+
+.report-date {
+    color: #718096;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.report-content p {
+    margin: 7px 0;
+    color: #5f6b7a;
+    font-size: 14px;
+}
+
+.report-file {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.file-name {
+    color: #64748b;
+    font-size: 13px;
+    word-break: break-word;
+}
+
+.report-file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.report-file-link:hover {
+    background: #dbeafe;
+}
+
+.report-conclusion {
+    margin-top: 13px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #edf1f5;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.report-conclusion strong {
+    color: #172033;
+}
+
+
+/* =========================================================
+   PRESCRIPTION CARDS
+   ========================================================= */
+
+.prescription-card {
+    display: flex;
+    gap: 17px;
+    padding: 20px;
+    margin-bottom: 14px;
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 16px;
+}
+
+.prescription-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #fdf2f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.prescription-content {
+    flex: 1;
+}
+
+.prescription-content h3 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: 17px;
+}
+
+.prescription-content p {
+    margin: 6px 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.prescription-content strong {
+    color: #334155;
+}
+
+.prescription-date {
+    display: inline-block;
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    text-align: center;
+    padding: 45px 20px;
+    border: 1px dashed #d7dee8;
+    border-radius: 16px;
+    background: #fafcff;
+}
+
+.empty-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.empty-state h3 {
+    margin: 0 0 7px;
+    color: #334155;
+    font-size: 17px;
+}
+
+.empty-state p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PATIENT CARDS - DOCTOR DASHBOARD
+   ========================================================= */
+
+.patient-card {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 19px;
+    margin-bottom: 13px;
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 16px;
+}
+
+.patient-avatar {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #14b8a6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.patient-avatar.small {
+    width: 43px;
+    height: 43px;
+    font-size: 13px;
+}
+
+.patient-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.patient-info h3 {
+    margin: 0 0 6px;
+    color: #172033;
+    font-size: 16px;
+}
+
+.patient-info p {
+    margin: 3px 0;
+    color: #718096;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.patient-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.patient-meta span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RECENT PATIENTS
+   ========================================================= */
+
+.recent-patient-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.recent-patient-item:last-child {
+    border-bottom: none;
+}
+
+.recent-patient-item strong {
+    display: block;
+    color: #334155;
+    font-size: 14px;
+}
+
+.recent-patient-item p {
+    margin: 3px 0 0;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: min(600px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, 0.2);
+    animation: modalIn 0.2s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 21px;
+}
+
+.modal-close {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: #e2e8f0;
+}
+
+
+/* =========================================================
+   FORM STYLING
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #d9e0e8;
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: #172033;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10000;
+    max-width: 360px;
+    padding: 13px 18px;
+    border-radius: 11px;
+    background: #172033;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.error {
+    background: #dc2626;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .profile-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .profile-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .record-top,
+    .report-top {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .patient-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .patient-card .btn {
+        width: 100%;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .profile-details,
+    .profile-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .record-card,
+    .report-card,
+    .prescription-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .record-icon,
+    .report-icon,
+    .prescription-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+}

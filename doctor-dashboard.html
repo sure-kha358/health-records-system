@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Health Record System | Provider Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body provider-body">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-brand-icon">
+                🩺
+            </div>
+
+            <div>
+
+                <h2>
+                    Health Record
+                </h2>
+
+                <p>
+                    Provider Portal
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROVIDER -->
+
+        <div class="sidebar-user">
+
+            <div class="sidebar-avatar">
+                DR
+            </div>
+
+            <div>
+
+                <strong>
+                    Healthcare Provider
+                </strong>
+
+                <span>
+                    Medical Staff
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <button
+                class="nav-item active"
+                data-provider-section="overview"
+                type="button"
+            >
+
+                <span class="nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Overview
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="nav-item"
+                data-provider-section="patients"
+                type="button"
+            >
+
+                <span class="nav-icon">
+                    👥
+                </span>
+
+                <span>
+                    Patients
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="nav-item"
+                data-provider-section="records"
+                type="button"
+            >
+
+                <span class="nav-icon">
+                    📋
+                </span>
+
+                <span>
+                    Medical Records
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="nav-item"
+                data-provider-section="reports"
+                type="button"
+            >
+
+                <span class="nav-icon">
+                    📄
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="nav-item"
+                data-provider-section="prescriptions"
+                type="button"
+            >
+
+                <span class="nav-icon">
+                    💊
+                </span>
+
+                <span>
+                    Prescriptions
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="nav-item"
+                id="providerLogoutBtn"
+                type="button"
+            >
+
+                <span class="nav-icon">
+                    ↪
+                </span>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+
+            <div class="sidebar-privacy">
+
+                🔒
+
+                <strong>
+                    Privacy Protected
+                </strong>
+
+                <br>
+
+                Patient information is handled
+                within this academic prototype.
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1 id="providerHeaderTitle">
+                    Provider Dashboard
+                </h1>
+
+                <p id="providerHeaderSubtitle">
+                    Manage patient health records
+                    securely.
+                </p>
+
+            </div>
+
+
+            <div class="header-user">
+
+                <div class="header-user-text">
+
+                    <strong>
+                        Healthcare Provider
+                    </strong>
+
+                    <span>
+                        Medical Staff
+                    </span>
+
+                </div>
+
+
+                <div class="header-avatar">
+                    DR
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
+
+            <section
+                id="provider-overview"
+                class="provider-section"
+            >
+
+
+                <div class="section-heading">
+
+                    <h2>
+                        Welcome, Healthcare Provider
+                    </h2>
+
+                    <p>
+                        Search patients and manage
+                        their medical information.
+                    </p>
+
+                </div>
+
+
+                <!-- STATS -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            👥
+                        </div>
+
+                        <h3 id="providerPatientCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Registered Patients
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📋
+                        </div>
+
+                        <h3 id="providerRecordCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Medical Records
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📄
+                        </div>
+
+                        <h3 id="providerReportCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Medical Reports
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            💊
+                        </div>
+
+                        <h3 id="providerPrescriptionCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Prescriptions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SEARCH PATIENT -->
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Search Patient
+                            </h2>
+
+                            <span>
+                                Find a patient by name,
+                                phone or email
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="provider-search-box"
+                        style="
+                            display:flex;
+                            gap:10px;
+                            margin-top:15px;
+                        "
+                    >
+
+                        <input
+                            type="text"
+                            id="overviewPatientSearch"
+                            placeholder="Search patient name, phone or email..."
+                            style="
+                                flex:1;
+                                height:48px;
+                                padding:0 15px;
+                                border:1px solid #d8e7ee;
+                                border-radius:12px;
+                                outline:none;
+                                background:#f9fcfd;
+                            "
+                        >
+
+
+                        <button
+                            class="btn-primary"
+                            id="overviewSearchBtn"
+                            type="button"
+                        >
+                            🔍 Search
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="overviewSearchResults"
+                        style="margin-top:15px;"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div
+                    class="quick-actions"
+                    style="margin-top:25px;"
+                >
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Provider Actions
+                        </h2>
+
+                        <p>
+                            Quickly access patient
+                            management tools.
+                        </p>
+
+                    </div>
+
+
+                    <div class="quick-actions-grid">
+
+
+                        <button
+                            class="action-card"
+                            id="overviewPatientsBtn"
+                            type="button"
+                        >
+
+                            <div class="action-icon">
+                                👥
+                            </div>
+
+                            <div class="action-content">
+
+                                <h3>
+                                    View Patients
+                                </h3>
+
+                                <p>
+                                    Search and open
+                                    registered patient
+                                    records.
+                                </p>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="action-card"
+                            id="overviewRecordsBtn"
+                            type="button"
+                        >
+
+                            <div class="action-icon">
+                                📋
+                            </div>
+
+                            <div class="action-content">
+
+                                <h3>
+                                    Medical Records
+                                </h3>
+
+                                <p>
+                                    Review patient history
+                                    and update records.
+                                </p>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PATIENTS
+            ================================================== -->
+
+            <section
+                id="provider-patients"
+                class="provider-section"
+                style="display:none;"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Patients
+                    </h2>
+
+                    <p>
+                        Search for a patient to view
+                        their health records.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+
+                    <div
+                        style="
+                            display:flex;
+                            gap:10px;
+                            margin-bottom:20px;
+                        "
+                    >
+
+                        <input
+                            type="text"
+                            id="patientSearchInput"
+                            placeholder="Search by name, phone or email..."
+                            style="
+                                flex:1;
+                                height:48px;
+                                padding:0 15px;
+                                border:1px solid #d8e7ee;
+                                border-radius:12px;
+                                outline:none;
+                                background:#f9fcfd;
+                            "
+                        >
+
+
+                        <button
+                            class="btn-primary"
+                            id="patientSearchBtn"
+                            type="button"
+                        >
+                            🔍 Search
+                        </button>
+
+                    </div>
+
+
+                    <div id="patientSearchResults">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                👥
+                            </div>
+
+                            <h3>
+                                Search for a patient
+                            </h3>
+
+                            <p>
+                                Enter the patient's name,
+                                phone number or email
+                                to view their records.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MEDICAL RECORDS
+            ================================================== -->
+
+            <section
+                id="provider-records"
+                class="provider-section"
+                style="display:none;"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Medical Records
+                    </h2>
+
+                    <p>
+                        Select a patient to view or
+                        update their medical history.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div
+                        id="selectedPatientRecordArea"
+                    >
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                📋
+                            </div>
+
+                            <h3>
+                                No patient selected
+                            </h3>
+
+                            <p>
+                                Search and select a patient
+                                to view their medical records.
+                            </p>
+
+                            <button
+                                class="btn-primary"
+                                id="recordsFindPatientBtn"
+                                type="button"
+                            >
+                                🔍 Find Patient
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 REPORTS
+            ================================================== -->
+
+            <section
+                id="provider-reports"
+                class="provider-section"
+                style="display:none;"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Medical Reports
+                    </h2>
+
+                    <p>
+                        View reports uploaded by
+                        your selected patient.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div id="providerReportsArea">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                📄
+                            </div>
+
+                            <h3>
+                                No patient selected
+                            </h3>
+
+                            <p>
+                                Select a patient first
+                                to view ECG, X-Ray,
+                                MRI, blood reports
+                                and other documents.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PRESCRIPTIONS
+            ================================================== -->
+
+            <section
+                id="provider-prescriptions"
+                class="provider-section"
+                style="display:none;"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Prescriptions
+                    </h2>
+
+                    <p>
+                        Review existing prescriptions
+                        or add a new prescription.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div id="providerPrescriptionsArea">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                💊
+                            </div>
+
+                            <h3>
+                                No patient selected
+                            </h3>
+
+                            <p>
+                                Select a patient to view
+                                and manage prescriptions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         PATIENT PROFILE / RECORD VIEW MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="patientViewModal"
+    >
+
+        <div
+            class="modal-content"
+            style="width:min(900px,100%);"
+        >
+
+            <div class="modal-header">
+
+                <h2>
+                    Patient Health Record
+                </h2>
+
+                <button
+                    class="modal-close"
+                    id="closePatientViewModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div id="patientViewContent"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD MEDICAL RECORD TO PATIENT
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="providerRecordModal"
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+                    Add Medical Record
+                </h2>
+
+                <button
+                    class="modal-close"
+                    id="closeProviderRecordModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="providerRecordForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="providerRecordDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Record Type
+                        </label>
+
+                        <select
+                            id="providerRecordType"
+                            required
+                        >
+
+                            <option value="General Checkup">
+                                General Checkup
+                            </option>
+
+                            <option value="Cardiology">
+                                Cardiology
+                            </option>
+
+                            <option value="Blood Test">
+                                Blood Test
+                            </option>
+
+                            <option value="ECG">
+                                ECG
+                            </option>
+
+                            <option value="X-Ray">
+                                X-Ray
+                            </option>
+
+                            <option value="MRI">
+                                MRI
+                            </option>
+
+                            <option value="CT Scan">
+                                CT Scan
+                            </option>
+
+                            <option value="Respiratory">
+                                Respiratory
+                            </option>
+
+                            <option value="Orthopedic">
+                                Orthopedic
+                            </option>
+
+                            <option value="Neurology">
+                                Neurology
+                            </option>
+
+                            <option value="Dental">
+                                Dental
+                            </option>
+
+                            <option value="Eye">
+                                Eye
+                            </option>
+
+                            <option value="Prescription">
+                                Prescription
+                            </option>
+
+                            <option value="Lab Report">
+                                Lab Report
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Doctor / Provider
+                        </label>
+
+                        <input
+                            type="text"
+                            id="providerDoctorName"
+                            value="Healthcare Provider"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Hospital / Clinic
+                        </label>
+
+                        <input
+                            type="text"
+                            id="providerHospital"
+                            placeholder="Hospital or clinic"
+                        >
+
+                    </div>
+
+
+
+                    <!-- FILE -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Medical File / Report
+                        </label>
+
+                        <input
+                            type="file"
+                            id="providerRecordFile"
+                            accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
+                        >
+
+                        <small
+                            style="
+                                display:block;
+                                margin-top:6px;
+                                color:#8aa0ac;
+                                font-size:9px;
+                            "
+                        >
+                            Upload ECG, X-Ray, MRI,
+                            blood report, prescription
+                            or another medical document.
+                        </small>
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Medical Notes
+                        </label>
+
+                        <textarea
+                            id="providerRecordNotes"
+                            placeholder="Enter medical notes..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Conclusion / Findings
+                        </label>
+
+                        <textarea
+                            id="providerRecordConclusion"
+                            placeholder="Enter documented findings or conclusion..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="cancelProviderRecordBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save Medical Record
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD PRESCRIPTION
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="providerPrescriptionModal"
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+                    Add Prescription
+                </h2>
+
+                <button
+                    class="modal-close"
+                    id="closeProviderPrescriptionModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="providerPrescriptionForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Prescription Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="prescriptionDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Doctor / Provider
+                        </label>
+
+                        <input
+                            type="text"
+                            id="prescriptionDoctor"
+                            value="Healthcare Provider"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Hospital / Clinic
+                        </label>
+
+                        <input
+                            type="text"
+                            id="prescriptionHospital"
+                            placeholder="Hospital or clinic"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Prescription / Medication Notes
+                        </label>
+
+                        <textarea
+                            id="prescriptionNotes"
+                            placeholder="Enter prescription details, medicine names, dosage instructions or doctor's notes..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Prescription Image / PDF
+                        </label>
+
+                        <input
+                            type="file"
+                            id="prescriptionFile"
+                            accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
+                        >
+
+                        <small
+                            style="
+                                display:block;
+                                margin-top:6px;
+                                color:#8aa0ac;
+                                font-size:9px;
+                            "
+                        >
+                            You can attach a prescription
+                            image or PDF.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="cancelProviderPrescriptionBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save Prescription
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="providerToast"
+        style="
+            display:none;
+            position:fixed;
+            right:25px;
+            bottom:25px;
+            z-index:9999;
+            padding:13px 18px;
+            border-radius:12px;
+            background:#153f57;
+            color:white;
+            font-size:10px;
+            box-shadow:0 12px 30px rgba(12,55,76,.2);
+        "
+    >
+        Saved successfully
+    </div>
+
+
+
+    <!-- =====================================================
+         PROVIDER JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/doctor-dashboard.js"></script>
+
+</body>
+
+</html>

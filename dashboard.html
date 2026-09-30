@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Health Record System | Patient Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-brand-icon">
+                🩺
+            </div>
+
+            <div>
+                <h2>Health Record</h2>
+                <p>Patient Portal</p>
+            </div>
+
+        </div>
+
+
+        <!-- USER -->
+
+        <div class="sidebar-user">
+
+            <div
+                class="sidebar-avatar"
+                id="sidebarAvatar"
+            >
+                JS
+            </div>
+
+            <div>
+                <strong id="sidebarName">
+                    Patient
+                </strong>
+
+                <span>
+                    Patient Account
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-section="overview"
+            >
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="history"
+            >
+                <span class="nav-icon">📋</span>
+                <span>Medical History</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="add-record"
+            >
+                <span class="nav-icon">➕</span>
+                <span>Add Records</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="reports"
+            >
+                <span class="nav-icon">📄</span>
+                <span>My Reports</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="prescriptions"
+            >
+                <span class="nav-icon">💊</span>
+                <span>Prescriptions</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="profile"
+            >
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="nav-item"
+                id="logoutBtn"
+            >
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </button>
+
+
+            <div class="sidebar-privacy">
+
+                🔒
+
+                <strong>
+                    Your data is private
+                </strong>
+
+                <br>
+
+                Stored locally for this academic prototype.
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Patient Dashboard
+                </h1>
+
+                <p>
+                    Manage your health information in one place
+                </p>
+
+            </div>
+
+
+            <div class="header-user">
+
+                <div class="header-user-text">
+
+                    <strong id="headerName">
+                        Patient
+                    </strong>
+
+                    <span>
+                        Patient Account
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="header-avatar"
+                    id="headerAvatar"
+                >
+                    JS
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 HOME / OVERVIEW
+            ================================================== -->
+
+            <section
+                id="overview"
+                class="dashboard-section active"
+            >
+
+                <!-- STATS -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📋
+                        </div>
+
+                        <h3 id="recordCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Medical Records
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📄
+                        </div>
+
+                        <h3 id="reportCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Medical Reports
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            💊
+                        </div>
+
+                        <h3 id="prescriptionCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Prescriptions
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            💙
+                        </div>
+
+                        <h3 id="healthStatus">
+                            No data
+                        </h3>
+
+                        <p>
+                            Record Status
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="quick-actions">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                        <p>
+                            Manage your health information quickly
+                        </p>
+
+                    </div>
+
+
+                    <div class="quick-actions-grid">
+
+
+                        <!-- ADD HEALTH RECORD -->
+
+                        <button
+                            class="action-card"
+                            id="homeAddRecordBtn"
+                            type="button"
+                        >
+
+                            <div class="action-icon">
+                                ➕
+                            </div>
+
+                            <div class="action-content">
+
+                                <h3>
+                                    Add Health Record
+                                </h3>
+
+                                <p>
+                                    Add a new medical visit,
+                                    test, diagnosis record or
+                                    health information.
+                                </p>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- UPLOAD MEDICAL REPORT -->
+
+                        <button
+                            class="action-card"
+                            id="homeAddReportBtn"
+                            type="button"
+                        >
+
+                            <div class="action-icon">
+                                📄
+                            </div>
+
+                            <div class="action-content">
+
+                                <h3>
+                                    Upload Medical Report
+                                </h3>
+
+                                <p>
+                                    Save ECG, blood test,
+                                    X-Ray, MRI, CT scan,
+                                    prescription and other reports.
+                                </p>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RECENT RECORDS -->
+
+                <div class="dashboard-two-column">
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <h2>
+                                Recent Medical Records
+                            </h2>
+
+                            <span>
+                                Latest activity
+                            </span>
+
+                        </div>
+
+
+                        <div id="recentRecords">
+
+                            <div class="empty-state">
+
+                                <div class="empty-state-icon">
+                                    📋
+                                </div>
+
+                                <h3>
+                                    No medical records yet
+                                </h3>
+
+                                <p>
+                                    Add your first health record
+                                    to keep your medical history
+                                    organized in one place.
+                                </p>
+
+                                <button
+                                    type="button"
+                                    id="emptyAddRecordBtn"
+                                >
+                                    + Add Health Record
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MEDICAL HISTORY
+            ================================================== -->
+
+            <section
+                id="history"
+                class="dashboard-section"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Medical History
+                    </h2>
+
+                    <p>
+                        View all your saved medical records.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            All Medical Records
+                        </h2>
+
+                        <button
+                            class="btn-primary"
+                            id="historyAddRecordBtn"
+                            type="button"
+                        >
+                            + Add Record
+                        </button>
+
+                    </div>
+
+
+                    <div id="allRecords">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                📋
+                            </div>
+
+                            <h3>
+                                No medical records
+                            </h3>
+
+                            <p>
+                                Your saved visits, tests,
+                                examinations and other
+                                medical records will appear here.
+                            </p>
+
+                            <button
+                                type="button"
+                                id="historyEmptyAddBtn"
+                            >
+                                + Add Medical Record
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADD RECORDS
+            ================================================== -->
+
+            <section
+                id="add-record"
+                class="dashboard-section"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Add Medical Record
+                    </h2>
+
+                    <p>
+                        Select the type of health record
+                        you want to add.
+                    </p>
+
+                </div>
+
+
+                <!-- RECORD TYPES -->
+
+                <div class="record-type-grid">
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="General Checkup"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🩺
+                        </div>
+
+                        <h3>
+                            General Checkup
+                        </h3>
+
+                        <p>
+                            Doctor visit
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Cardiology"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            ❤️
+                        </div>
+
+                        <h3>
+                            Cardiology
+                        </h3>
+
+                        <p>
+                            Heart related record
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Blood Test"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🩸
+                        </div>
+
+                        <h3>
+                            Blood Test
+                        </h3>
+
+                        <p>
+                            Blood report
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="ECG"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            💓
+                        </div>
+
+                        <h3>
+                            ECG
+                        </h3>
+
+                        <p>
+                            ECG report / image
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="X-Ray"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🩻
+                        </div>
+
+                        <h3>
+                            X-Ray
+                        </h3>
+
+                        <p>
+                            X-Ray image / report
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="MRI"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🧠
+                        </div>
+
+                        <h3>
+                            MRI
+                        </h3>
+
+                        <p>
+                            MRI image / report
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="CT Scan"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🔬
+                        </div>
+
+                        <h3>
+                            CT Scan
+                        </h3>
+
+                        <p>
+                            CT scan report
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Respiratory"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🫁
+                        </div>
+
+                        <h3>
+                            Respiratory
+                        </h3>
+
+                        <p>
+                            Respiratory record
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Orthopedic"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🦴
+                        </div>
+
+                        <h3>
+                            Orthopedic
+                        </h3>
+
+                        <p>
+                            Bone / joint record
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Neurology"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🧠
+                        </div>
+
+                        <h3>
+                            Neurology
+                        </h3>
+
+                        <p>
+                            Neurological record
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Dental"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🦷
+                        </div>
+
+                        <h3>
+                            Dental
+                        </h3>
+
+                        <p>
+                            Dental record
+                        </p>
+
+                    </button>
+
+
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Eye"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            👁️
+                        </div>
+
+                        <h3>
+                            Eye
+                        </h3>
+
+                        <p>
+                            Eye examination
+                        </p>
+
+                    </button>
+
+
+
+                    <!-- PRESCRIPTION -->
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Prescription"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            💊
+                        </div>
+
+                        <h3>
+                            Prescription
+                        </h3>
+
+                        <p>
+                            Prescription image / PDF
+                        </p>
+
+                    </button>
+
+
+
+                    <!-- LAB REPORT -->
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Lab Report"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            🧪
+                        </div>
+
+                        <h3>
+                            Lab Report
+                        </h3>
+
+                        <p>
+                            Laboratory report
+                        </p>
+
+                    </button>
+
+
+
+                    <!-- OTHER -->
+
+                    <button
+                        class="record-type-card"
+                        data-record-type="Other"
+                        type="button"
+                    >
+
+                        <div class="record-type-icon">
+                            📄
+                        </div>
+
+                        <h3>
+                            Other
+                        </h3>
+
+                        <p>
+                            Other medical document
+                        </p>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 REPORTS
+            ================================================== -->
+
+            <section
+                id="reports"
+                class="dashboard-section"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        My Medical Reports
+                    </h2>
+
+                    <p>
+                        ECG, X-Ray, MRI, blood tests,
+                        scans and other uploaded reports.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Saved Reports
+                        </h2>
+
+                        <button
+                            class="btn-primary"
+                            id="reportsAddBtn"
+                            type="button"
+                        >
+                            + Upload Report
+                        </button>
+
+                    </div>
+
+
+                    <div id="reportsList">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                📄
+                            </div>
+
+                            <h3>
+                                No reports uploaded
+                            </h3>
+
+                            <p>
+                                Upload ECG, X-Ray, MRI,
+                                blood test, CT scan,
+                                prescription or other
+                                medical documents.
+                            </p>
+
+                            <button
+                                type="button"
+                                id="reportsEmptyBtn"
+                            >
+                                + Upload Medical Report
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PRESCRIPTIONS
+            ================================================== -->
+
+            <section
+                id="prescriptions"
+                class="dashboard-section"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Prescriptions
+                    </h2>
+
+                    <p>
+                        View prescriptions saved by you
+                        or your healthcare provider.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div id="prescriptionsList">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                💊
+                            </div>
+
+                            <h3>
+                                No prescriptions yet
+                            </h3>
+
+                            <p>
+                                Prescriptions added by your
+                                healthcare provider will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section
+                id="profile"
+                class="dashboard-section"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        My Profile
+                    </h2>
+
+                    <p>
+                        Your personal account information.
+                    </p>
+
+                </div>
+
+
+                <div class="profile-container">
+
+                    <div class="profile-hero">
+
+                        <div
+                            class="profile-avatar"
+                            id="profileAvatar"
+                        >
+                            JS
+                        </div>
+
+                        <div>
+
+                            <h2 id="profileName">
+                                Patient Name
+                            </h2>
+
+                            <p>
+                                Patient Account
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="btn-primary"
+                            id="editProfileBtn"
+                            type="button"
+                        >
+                            Edit Profile
+                        </button>
+
+                    </div>
+
+
+                    <div class="profile-details">
+
+
+                        <div class="profile-detail-card">
+
+                            <span>
+                                Full Name
+                            </span>
+
+                            <strong id="profileFullName">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail-card">
+
+                            <span>
+                                Date of Birth
+                            </span>
+
+                            <strong id="profileDOB">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail-card">
+
+                            <span>
+                                Gender
+                            </span>
+
+                            <strong id="profileGender">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail-card">
+
+                            <span>
+                                Phone
+                            </span>
+
+                            <strong id="profilePhone">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail-card">
+
+                            <span>
+                                Email
+                            </span>
+
+                            <strong id="profileEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ADD MEDICAL RECORD MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="recordModal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h2>
+                    Add Medical Record
+                </h2>
+
+                <button
+                    class="modal-close"
+                    id="closeRecordModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="recordForm">
+
+                <div class="form-grid">
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label for="recordDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="recordDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="recordType">
+                            Record Type
+                        </label>
+
+                        <select
+                            id="recordType"
+                            required
+                        >
+
+                            <option value="General Checkup">
+                                General Checkup
+                            </option>
+
+                            <option value="Cardiology">
+                                Cardiology
+                            </option>
+
+                            <option value="Blood Test">
+                                Blood Test
+                            </option>
+
+                            <option value="ECG">
+                                ECG
+                            </option>
+
+                            <option value="X-Ray">
+                                X-Ray
+                            </option>
+
+                            <option value="MRI">
+                                MRI
+                            </option>
+
+                            <option value="CT Scan">
+                                CT Scan
+                            </option>
+
+                            <option value="Respiratory">
+                                Respiratory
+                            </option>
+
+                            <option value="Orthopedic">
+                                Orthopedic
+                            </option>
+
+                            <option value="Neurology">
+                                Neurology
+                            </option>
+
+                            <option value="Dental">
+                                Dental
+                            </option>
+
+                            <option value="Eye">
+                                Eye
+                            </option>
+
+                            <option value="Prescription">
+                                Prescription
+                            </option>
+
+                            <option value="Lab Report">
+                                Lab Report
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR -->
+
+                    <div class="form-group">
+
+                        <label for="recordDoctor">
+                            Doctor / Provider
+                        </label>
+
+                        <input
+                            type="text"
+                            id="recordDoctor"
+                            placeholder="Enter doctor name"
+                        >
+
+                    </div>
+
+
+
+                    <!-- HOSPITAL -->
+
+                    <div class="form-group">
+
+                        <label for="recordHospital">
+                            Hospital / Clinic
+                        </label>
+
+                        <input
+                            type="text"
+                            id="recordHospital"
+                            placeholder="Enter hospital or clinic"
+                        >
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         FILE UPLOAD
+                    ================================================== -->
+
+                    <div
+                        class="form-group full"
+                        id="recordFileGroup"
+                    >
+
+                        <label for="recordFile">
+                            Medical File / Report
+                        </label>
+
+
+                        <div class="medical-upload-box">
+
+                            <div class="medical-upload-icon">
+                                📎
+                            </div>
+
+
+                            <div class="medical-upload-content">
+
+                                <strong>
+                                    Upload Medical Document
+                                </strong>
+
+                                <p>
+                                    Add ECG, X-Ray, MRI,
+                                    CT scan, blood report,
+                                    prescription or other files.
+                                </p>
+
+                                <small>
+                                    Supported: JPG, PNG, WEBP, PDF
+                                </small>
+
+                            </div>
+
+
+                            <label
+                                for="recordFile"
+                                class="upload-button"
+                            >
+                                Choose File
+                            </label>
+
+                            <input
+                                type="file"
+                                id="recordFile"
+                                accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <!-- FILE PREVIEW -->
+
+                        <div
+                            id="recordFilePreview"
+                            class="record-file-preview"
+                            style="display:none;"
+                        >
+
+                            <div
+                                id="recordFilePreviewIcon"
+                                class="record-file-preview-icon"
+                            >
+                                📄
+                            </div>
+
+                            <div class="record-file-preview-info">
+
+                                <strong id="recordFileName">
+                                    File
+                                </strong>
+
+                                <span id="recordFileSize">
+                                    0 KB
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="removeRecordFile"
+                                class="remove-file-btn"
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MEDICAL NOTES -->
+
+                    <div class="form-group full">
+
+                        <label for="recordNotes">
+                            Medical Notes
+                        </label>
+
+                        <textarea
+                            id="recordNotes"
+                            placeholder="Enter relevant medical notes, symptoms, test details or visit information..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- CONCLUSION -->
+
+                    <div class="form-group full">
+
+                        <label for="recordConclusion">
+                            Conclusion / Findings
+                        </label>
+
+                        <textarea
+                            id="recordConclusion"
+                            placeholder="Enter the conclusion or findings mentioned in the medical report..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="cancelRecordBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save Medical Record
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         UPLOAD REPORT MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="reportModal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h2>
+                    Upload Medical Report
+                </h2>
+
+                <button
+                    class="modal-close"
+                    id="closeReportModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="reportForm">
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="reportName">
+                            Report Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="reportName"
+                            placeholder="e.g. ECG Report"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="reportDate">
+                            Report Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="reportDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label for="reportType">
+                            Report Type
+                        </label>
+
+                        <select id="reportType">
+
+                            <option value="Blood Test">
+                                Blood Test
+                            </option>
+
+                            <option value="ECG">
+                                ECG
+                            </option>
+
+                            <option value="X-Ray">
+                                X-Ray
+                            </option>
+
+                            <option value="MRI">
+                                MRI
+                            </option>
+
+                            <option value="CT Scan">
+                                CT Scan
+                            </option>
+
+                            <option value="Prescription">
+                                Prescription
+                            </option>
+
+                            <option value="Lab Report">
+                                Lab Report
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- REPORT FILE -->
+
+                    <div class="form-group full">
+
+                        <label for="reportFile">
+                            Select Medical Report
+                        </label>
+
+                        <input
+                            type="file"
+                            id="reportFile"
+                            accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label for="reportConclusion">
+                            Report Conclusion / Findings
+                        </label>
+
+                        <textarea
+                            id="reportConclusion"
+                            placeholder="Enter the conclusion or findings written in the report..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="cancelReportBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save Report
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EDIT PROFILE MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="editProfileModal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h2>
+                    Edit Profile
+                </h2>
+
+                <button
+                    class="modal-close"
+                    id="closeProfileModal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editProfileForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group full">
+
+                        <label for="editName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="editDOB">
+                            Date of Birth
+                        </label>
+
+                        <input
+                            type="date"
+                            id="editDOB"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="editPhone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="editPhone"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="editGender">
+                            Gender
+                        </label>
+
+                        <select id="editGender">
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="editEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="editEmail"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="cancelProfileBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        style="display:none;"
+    >
+        Saved successfully
+    </div>
+
+
+
+    <!-- =====================================================
+         SCRIPT
+    ====================================================== -->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
